@@ -13,7 +13,7 @@ d = sqrt ((x - xs).^2 + (y - ys).^2);
 i0 = 100 / (2 * %pi);
 // Hauteur de la source ponctuelle
 h = 0.50;
-// eclairement pour le point perpemdiculaire à la source
+// Éclairement pour le point perpendiculaire à la source
 e0 = i0/h^2
 // Calcul de l'éclairement
 e = (e0 * h^4) ./ (d.^2 + h^2).^2
