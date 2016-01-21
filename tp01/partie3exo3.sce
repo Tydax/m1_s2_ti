@@ -36,5 +36,5 @@ for i = 0 : n - 1
     end
 end
 var = (max(efin) - min(efin)) / max(efin);
-plot3d (axe, axe, efin);
+plot3d (axe, axe, efin - mean(efin));
 imshow (efin / 100);

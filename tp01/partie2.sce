@@ -22,4 +22,4 @@ e = (e0 * h^4) ./ (d.^2 + h^2).^2
 // Trace de la fonction distance
 plot3d (axe, axe, e);
 // Visualisation sous forme d'image en niveaux de gris
-imshow (e);
+imshow (e/100);

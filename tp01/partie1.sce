@@ -19,4 +19,4 @@ e = (i0 * h) ./ (d.^2 + h^2).^1.5
 // Trace de la fonction distance
 plot3d1 (axe, axe, e);
 // Visualisation sous forme d'image en niveaux de gris
-imshow (e);
+imshow (e/100);
