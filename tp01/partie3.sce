@@ -2,14 +2,15 @@
 // L’éclairement pour un point donné = somme des éclairements calculés par chaque source
 
 // Paramètres
-n = 2      // Carré de N*N sources
-cote = 400      // Côté de carré de surface à éclairer
-h = 0.50;    // Hauteur de la source ponctuelle
+n = 9      // Carré de N*N sources
+cote = 4      // Côté de carré des sources
+h = 0.50;    // Hauteur du carré de sources
 
 // Définition de la surface à éclairer
-axe = [0:cote-1] / 100 + 5e-3;
-x = ones (1:cote)' * axe;
-y = axe' * ones (1:cote);
+ 
+axe = [0:99] / 100 + 5e-3 + 1.5;
+x = ones (1:100)' * axe; // Offset pour centrer la surface sous le carré
+y = axe' * ones (1:100);
 
 // Intensité énergétique pour tous les points
 i0 = 100 / (2 * %pi);
@@ -17,15 +18,14 @@ i0 = 100 / (2 * %pi);
 e0 = i0/h^2
 
 // Éclairement total
-efin = zeros(cote, cote);
+efin = zeros(100, 100);
 
 // Boucle qui parcourt tous les x des sources
-for i = 1 : n
-    ref = cote / 100;
-    xs = ref / (n * 2) + (i - 1) * ref / n; // x de la source
+for i = 0 : n - 1
+    xs = i * cote / (n - 1); // x de la source
     // Boucle qui parcourt tous les y des sources
-    for j = 1 : n
-        ys = ref / (n * 2) + (j - 1) * ref / n; // y de la source
+    for j = 0 : n - 1
+        ys = j * cote / (n - 1); // y de la source
         
         // Calcul de la distance
         d = sqrt ((x - xs).^2 + (y - ys).^2);
