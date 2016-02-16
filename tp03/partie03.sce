@@ -1,0 +1,1 @@
+function res = quantification(m, vmin, vmax)

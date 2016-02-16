@@ -22,7 +22,7 @@ efin = zeros(100, 100);
 
 // Boucle qui parcourt tous les x des sources
 for i = 0 : n - 1
-    xs = i * cote / (n - 1); // x de la source
+    xs = i * cote / (n - 1)a; // x de la source
     // Boucle qui parcourt tous les y des sources
     for j = 0 : n - 1
         ys = j * cote / (n - 1); // y de la source
