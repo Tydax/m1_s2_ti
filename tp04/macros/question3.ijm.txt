@@ -1,0 +1,39 @@
+macro "Question 3" {
+	bins = 256;
+	w = getWidth();
+	h = getHeight();
+	nbPixels = w * h;
+	histoCumul = newArray(bins);
+	finalValues = newArray(bins);
+	
+	// Calcul des valeurs transformées à partir de l'histogramme
+	getHistogram(values, histo, bins);
+	histoCumul[0] = histo[0];
+	finalValues[0] = (bins - 1) * histoCumul[0];
+
+	for (i = 1; i < bins; i++) {
+		histoCumul[i] = histoCumul[i - 1] + histo[i];
+		finalValues[i] = (bins - 1) * histoCumul[i] / nbPixels;
+	}
+	
+	// Application de la transformation
+	for (j = 0; j < h; j++) {
+		for (i = 0; i < w; i++) {
+			pix = getPixel(i, j);
+			setPixel(i, j, finalValues[pix]);
+		}
+	}
+
+	// Calcul de l'histogramme résultant
+	getHistogram(values, histo, bins);
+	histoCumul[0] = histo[0];
+
+	for (i = 1; i < bins; i++) {
+		histoCumul[i] = histoCumul[i - 1] + histo[i];
+	}
+
+	// Dessin du graphique
+	Plot.create("Histogram", "Pixel Value", "Count", values, histo);
+	Plot.setLimits(0, 256, 0, nbPixels);
+	Plot.add("line", values, histoCumul);
+}
