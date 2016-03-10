@@ -1,11 +1,19 @@
 CORPUS := corpus.md
 TEMPLATE := mytemplate.latex
-OUTPUT := university-report.pdf
+OUTPUT := university-report
+METADATA := metadata.yaml
 
-report : $(CORPUS) $(METADATA)
+latex : $(CORPUS) $(METADATA)
 	pandoc $(METADATA) 		\
 	$(CORPUS)		 		\
 	-f markdown				\
 	--template=$(TEMPLATE)	\
-	-o $(OUTPUT)			\
+	-o $(OUTPUT).tex			\
+	-s
+pdf : $(CORPUS) $(METADATA)
+	pandoc $(METADATA) 		\
+	$(CORPUS)		 		\
+	-f markdown				\
+	--template=$(TEMPLATE)	\
+	-o $(OUTPUT).pdf			\
 	-s

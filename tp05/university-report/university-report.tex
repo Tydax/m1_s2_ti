@@ -1,0 +1,249 @@
+\documentclass[french,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+    \setmainfont[]{Latin Modern Sans}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Compte-rendu de travaux pratique no. 5},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=french]{babel}
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[]{french}
+\fi
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\title{Compte-rendu de travaux pratique no. 5}
+\providecommand{\subtitle}[1]{}
+\subtitle{Classification automatique de textures cycliques par analyse du plan de
+Fourier}
+\author{
+Armand BOUR
+ \and
+Tristan CAMUS
+}
+\date{Jeudi 10 mars 2016}
+
+\begin{document}
+\maketitle
+
+\section{Question 1}\label{question-1}
+
+On sélectionne deux points capturant le motif répété afin d'obtenir la
+période :
+\[Période= |y(\text{Point 1}) - y(\text{Point 2})| = |19 - 24| = 5 \text{pixels / cycle}\]
+\[Fréquence = \frac{1}{\text{période}} = \frac{1}{5} = 0.2 \text{cycle / pixel}\]
+
+\section{Question 2}\label{question-2}
+
+Les coordonnées de la raie maximale sont \((128, 128)\), soit
+\((0, 0)\), soit l'origine, dans le plan de Fourier puisqu'il s'agit du
+point central de l'image.
+
+\section{Question 3}\label{question-3}
+
+Les coordonnées de la raie secondaire peut se calculer en cherchant à
+nouveau la valeur maximum à partir de l'image transformée où la raie
+principale a été remplacée par un point noir. On obtient alors les
+coordonnées \((128, 77)\), et \((128, 179)\), qui sont bien symétriques
+par rapport au centre. Voici la macro modifiée afin de chercher les
+raies secondaires :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{macro }\StringTok{"direction FFT"}
+\NormalTok{\{}
+    \CommentTok{// ouverture d'une image si necessaire - sinon la macro analyse l'image courante}
+    \CommentTok{//open ("/home/bmathon/Enseignement/TI/tp6_TF/images/256_a.jpg");}
+
+    \CommentTok{// recuperation de l'identifiant de l'image}
+    \NormalTok{image = }\FunctionTok{getImageID}\NormalTok{();}
+
+    \CommentTok{// application de la TDF (FFT : Fast Fourier Transform)}
+    \FunctionTok{run}\NormalTok{(}\StringTok{"FFT"}\NormalTok{);}
+
+    \CommentTok{// recuperation de l'ID du module de la FFT}
+    \NormalTok{fourier = }\FunctionTok{getImageID}\NormalTok{();}
+
+    \CommentTok{// recuperation de la taille W x H du module de la FFT}
+    \NormalTok{W = }\FunctionTok{getWidth}\NormalTok{();}
+    \NormalTok{H = }\FunctionTok{getHeight}\NormalTok{();}
+
+    \CommentTok{// recherche du max}
+    \NormalTok{max_1 = }\DecValTok{0}\NormalTok{; }
+    \NormalTok{i_max_1 = }\DecValTok{0}\NormalTok{;}
+    \NormalTok{j_max_1 = }\DecValTok{0}\NormalTok{;}
+    
+    \KeywordTok{for} \NormalTok{(j=}\DecValTok{0}\NormalTok{; j<H; j++)}
+    \NormalTok{\{}
+        \KeywordTok{for} \NormalTok{(i=}\DecValTok{0}\NormalTok{; i<W; i++) }
+        \NormalTok{\{}
+            \NormalTok{p = }\FunctionTok{getPixel}\NormalTok{(i,j);}
+            \KeywordTok{if} \NormalTok{( max_1 < p)}
+            \NormalTok{\{}
+                \NormalTok{max_1 =p;}
+                \NormalTok{i_max_1 = i;}
+                \NormalTok{j_max_1 =j;}
+            \NormalTok{\} }
+        \NormalTok{\}}
+    \NormalTok{\}}
+
+    \CommentTok{// mise a zero de la valeur max}
+
+        \FunctionTok{setPixel} \NormalTok{(i_max_1,j_max_1,}\DecValTok{0}\NormalTok{);}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"i_max_1="}\NormalTok{, i_max_1);}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"j_max_1="}\NormalTok{, j_max_1);}
+
+
+    \CommentTok{// Recherche de la raie secondaire en recherchant le max}
+    \NormalTok{max_2 = }\DecValTok{0}\NormalTok{;}
+    \NormalTok{i_max_2 = }\FunctionTok{newArray}\NormalTok{(}\DecValTok{2}\NormalTok{);}
+    \NormalTok{j_max_2 = }\FunctionTok{newArray}\NormalTok{(}\DecValTok{2}\NormalTok{);}
+
+    \KeywordTok{for} \NormalTok{(j = }\DecValTok{0}\NormalTok{; j < H; j++) \{}
+        \KeywordTok{for} \NormalTok{(i = }\DecValTok{0}\NormalTok{; i < W; i++) \{}
+            \NormalTok{p = }\FunctionTok{getPixel}\NormalTok{(i, j);}
+            
+            \KeywordTok{if} \NormalTok{(max_2 < p) \{}
+                \NormalTok{max_2 = p;}
+                \NormalTok{i_max_2[}\DecValTok{0}\NormalTok{] = i;}
+                \NormalTok{j_max_2[}\DecValTok{0}\NormalTok{] = j;}
+            \NormalTok{\} }\KeywordTok{else} \KeywordTok{if} \NormalTok{(max_2 == p) \{}
+                \NormalTok{i_max_2[}\DecValTok{1}\NormalTok{] = i;}
+                \NormalTok{j_max_2[}\DecValTok{1}\NormalTok{] = j;}
+            \NormalTok{\}}
+        \NormalTok{\}}
+    \NormalTok{\}}
+
+    \CommentTok{// En colore en noir les points correspondant aux raies secondaires}
+    \FunctionTok{setPixel}\NormalTok{(i_max_2[}\DecValTok{0}\NormalTok{],  j_max_2[}\DecValTok{0}\NormalTok{], }\DecValTok{0}\NormalTok{);}
+    \FunctionTok{setPixel}\NormalTok{(i_max_2[}\DecValTok{1}\NormalTok{],  j_max_2[}\DecValTok{1}\NormalTok{], }\DecValTok{0}\NormalTok{);}
+    \CommentTok{// On affiche les coordonnées}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"i_max_2="}\NormalTok{, i_max_2[}\DecValTok{0}\NormalTok{], }\StringTok{" ; "}\NormalTok{, i_max_2[}\DecValTok{1}\NormalTok{]);}
+    \FunctionTok{print}\NormalTok{(}\StringTok{"j_max_2="}\NormalTok{, j_max_2[}\DecValTok{0}\NormalTok{], }\StringTok{" ; "}\NormalTok{, j_max_2[}\DecValTok{1}\NormalTok{]);}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Afin de retrouver les coordonnées sur le plan de Fourier, il convient de
+soustraire la moitié de la largeur de l'image à l'abscisse et de
+soustraire l'ordonnée à la moitié de la hauteur de l'image dans le but
+de replacer l'origine au centre de l'image. Ensuite, il ne reste plus
+qu'à calculer le pourcentage de la coordonnée, et le réappliquer à la
+différence entre la valeur maximum et la valeur minimum de l'axe.
+Concrètement :
+\[abscisse(y) = \frac{o(y) - \text{moitié de la largeur} } {\text{largeur}} \times (\text{valeur maximum de l’axe d’arrivée} - \text{valeur minimum de l’axe d’arrivée})\]
+\[ordonnée(y) = \frac{\text{moitié de la hauteur} - o(y)} {\text{hauteur}} \times (\text{valeur maximum de l’axe d’arrivée} - \text{valeur minimum de l’axe d’arrivée})\]
+Soit pour notre cas :
+\[ordonnée(77) = \frac{\frac{256} {2} - 77} {256} \times (0.5 - (-0.5)) = \frac{51} {256} \approx 0.199\]
+\[ordonnée(179) = \frac{\frac{256} {2} - 179} {256} \times (0.5 - (-0.5)) = -\frac{51} {256} \approx -0.199\]
+
+Donc les coordonnées des raies secondaires sur le plan de Fourier sont :
+\((0, 0.199)\) et \((0, -0.199)\).
+
+\section{Question 4}\label{question-4}
+
+\subsection{128\_a.jpg}\label{a.jpg}
+
+La période est de 5 pixels / cycle. La fréquence est de 0,2
+cycle/pixels. La raie principale se situe aux coordonnées \((64, 64)\),
+soit \((0, 0)\) sur le plan de Fourier. Les raies secondaires se situent
+aux cordonnées \((64, 38)\) et \((64, 90)\), soit \((0, 0.203)\) et
+\((0, -0.203)\) sur le plan de Fourier.
+
+\subsection{256\_b.jpg}\label{b.jpg}
+
+La période est de 5 pixels / cycle. La fréquence est de 0,2
+cycle/pixels. La raie principale se situe aux coordonnées
+\((128, 128)\), soit \((0, 0)\) sur le plan de Fourier. Les raies
+secondaires se situent aux cordonnées \((77, 77)\) et \((179, 179)\),
+soit \((-0.199, 0.199)\) et \((0.199, -0.199)\) sur le plan de Fourier.
+
+\section{Question 5}\label{question-5}
+
+Si les abscisses des raies secondaires ont même signe, la texture est
+\textbf{horizontale}. Si leurs ordonnées ont même signe, la texture est
+\textbf{verticale}. Si les deux ont des signes différents, la texture
+est \textbf{diagonale}. Ce qui donne en code :
+\texttt{java\ \ \ \ \ if\ (i\_four{[}0{]}\ *\ i\_four{[}1{]}\ \textgreater{}=\ 0)\ \{\ \ \ \ \ \ \ \ \ class\ =\ "horizontale";\ \ \ \ \ \}\ else\ if\ (j\_four{[}0{]}\ *\ j\_four{[}1{]}\ \textgreater{}=\ 0)\ \{\ \ \ \ \ \ \ \ \ class\ =\ "verticale";\ \ \ \ \ \}\ else\ \{\ \ \ \ \ \ \ \ \ class\ =\ "diagonale";\ \ \ \ \ \}}
+
+\end{document}

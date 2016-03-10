@@ -62,8 +62,33 @@ macro "direction FFT"
 		}
 	}
 
+	// En colore en noir les points correspondant aux raies secondaires
 	setPixel(i_max_2[0],  j_max_2[0], 0);
 	setPixel(i_max_2[1],  j_max_2[1], 0);
+
+	// On affiche les coordonnées
 	print("i_max_2=", i_max_2[0], " ; ", i_max_2[1]);
 	print("j_max_2=", j_max_2[0], " ; ", j_max_2[1]);
+
+	// Calcul des coordonnées sur le plan de fourier
+	i_four = newArray(2);
+	j_four = newArray(2);
+
+	for (i = 0; i < 2; i++) {
+		i_four[i] = (i_max_2[i] - W / 2) / W;
+		j_four[i] = (H / 2 - j_max_2[i]) / H;
+	}
+	
+	print("i_four=", i_four[0], " ; ", i_four[1]);
+	print("j_four=", j_four[0], " ; ", j_four[1]);
+
+	if (i_four[0] * i_four[1] >= 0) {
+		class = "horizontale";
+	} else if (j_four[0] * j_four[1] >= 0) {
+		class = "verticale";
+	} else {
+		class = "diagonale";
+	}
+
+	print("Classe : ", class);
 }
