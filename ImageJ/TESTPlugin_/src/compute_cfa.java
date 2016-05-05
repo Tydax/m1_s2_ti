@@ -12,8 +12,8 @@ public class compute_cfa implements PlugInFilter {
 	int height; // Hauteur de la fenêtre
 
 	public int setup(String arg, ImagePlus imp) {
-		/* à compléter */
-		return height;
+		this.imp = imp;
+		return PlugInFilter.DOES_RGB;
 	}
 
 	public void run(ImageProcessor ip) {
@@ -37,7 +37,7 @@ public class compute_cfa implements PlugInFilter {
 
 		// Génération de l'image CFA
 		final ImageProcessor ipCfa = cfa(0);
-		final ImagePlus cfaImg = new ImagePlus(imp.getTitle() + "_CFA", ip);
+		final ImagePlus cfaImg = new ImagePlus(imp.getTitle() + "_CFA", ipCfa);
 		cfaImg.show();
 	}
 
